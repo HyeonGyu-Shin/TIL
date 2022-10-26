@@ -1,0 +1,76 @@
+<br>
+
+# 💬 &nbsp; 서비스 소개
+
+<br>
+
+👉 &nbsp; 간단한 게시판입니다.
+
+&nbsp; Elice 3기 SW Enginneer Track 7주차 Node 수업에서 나온 게시판 예제를 요구사항을 정의하고 다시 한 번 구현해보려는 목적으로 만들었습니다.
+
+<br>
+
+# 💬 &nbsp; 멤버
+
+<br>
+
+| backend |
+| :-----: |
+|  현규   |
+
+<br>
+
+# ⚙️ &nbsp; 기술 스택
+
+<br>
+
+## 백엔드
+
+<br>
+
+<img src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=black"/> &nbsp;
+<img src="https://img.shields.io/badge/-Express-000?style=flat&logo=Express&logoColor=white"/>&nbsp;
+<img src="https://img.shields.io/badge/-Pug-000?style=flat&logo=Pug&logoColor=white"/> &nbsp;
+<img src="https://img.shields.io/badge/-MongoDB-71,162,72?style=flat&logo=MongoDB&logoColor=black"/> &nbsp;
+
+<br>
+
+&nbsp; Language | Javascript
+
+&nbsp; Library | Express
+
+&nbsp; Data | Mongoose
+
+&nbsp; DB | MongoDB
+
+&nbsp; ViewEngine | Pug
+
+<br>
+
+# 🎬 &nbsp; 시나리오
+
+<br>
+
+## &nbsp; 1. 게시글 작성 흐름
+
+<br>
+
+👉 &nbsp; 게시글 작성을 위한 흐름은 다음과 같다.
+
+1. `/posts?write=true`로 작성페이지 접근
+
+2. `<form action='/posts' method='post'>` 이용해 post 요청 전송
+
+3. `router.post` 이용하여 post 요청 처리
+
+4. `res.redirect` 이용하여 post 완료 처리
+
+<br>
+
+&nbsp; [게시글 작성 구현하기](https://velog.io/@rkrkdldkd/Express%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-Simple-board-%EB%A7%8C%EB%93%A4%EA%B8%B0-1-%EA%B2%8C%EC%8B%9C%EA%B8%80-%EC%9E%91%EC%84%B1-%EA%B8%B0%EB%8A%A5-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+
+<br>
+
+## &nbsp;
+
+<br>
