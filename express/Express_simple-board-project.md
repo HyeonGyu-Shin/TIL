@@ -71,6 +71,24 @@
 
 <br>
 
+## &nbsp; 2.게시글 목록 및 상세 흐름
+
+<br>
+
+👉 &nbsp; 게시글 목록 및 상세 흐름은 다음과 같다.
+
+1. `/posts`로 목록 페이지 접근
+
+2. `<a href='/posts/:shortId'>` 이용하여 상세 URL Link
+
+3. `router.get('/:shortId') path parameter` 이용하여 요청 처리
+
+<br>
+
+&nbsp; [게시글 조회 구현하기](https://velog.io/@rkrkdldkd/Express%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-Simple-board-%EB%A7%8C%EB%93%A4%EA%B8%B0-2-%EA%B2%8C%EC%8B%9C%EA%B8%80-%EC%A1%B0%ED%9A%8C-%EA%B8%B0%EB%8A%A5-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+
+<br>
+
 ## &nbsp;
 
 <br>
