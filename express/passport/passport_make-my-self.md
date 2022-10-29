@@ -257,3 +257,104 @@ app.use(myPassport.session())
 👉 &nbsp; 세션 활성화 직 후 세션에 저장된 로그인 정보를 복구하도록 순서에 맞게 미들웨어를 세팅했다.
 
 &nbsp; '/debug' url로 접근하면 req.user에 유저 정보가 할당된 모습을 확인할 수 있다.
+
+<br>
+
+### 접근 제한 - req.user
+
+<br>
+
+👉 &nbsp; `/profile`은 사용자의 프로필을 조회하는 페이지를 제공하는 url이다.
+
+&nbsp; 이를 위해서는 로그인이 필요하다. 이처럼 접근을 제한하기 위한 미들웨어를 만들어보자.
+
+```js
+const isAuthenticate = () => (req, res, next) => {
+    if (!req.user) {
+        return res.sendStatus(403);
+    }
+
+    next();
+};
+
+app.get('/profile', isAuthenticate(), (req, res) => {
+    res.json(req.user);
+});
+```
+
+👉 &nbsp; `/profile`로 GET 요청이 오면 `isAuthenticate` 메서드를 거쳐 req.user가 있으면 컨트롤러 함수가 실행이 되고, 아니면 오류 처리 미들웨어가 실행이 된다.
+
+<br>
+
+### 로그아웃 - req.logout
+
+<br>
+
+👉 &nbsp; 로그인에 성공하면 세션에 userId를 저장한 것처럼, 로그아웃에 성공하면 세션에서 userId를 삭제하면 된다.
+
+```js
+app.post('/logout', (req, res, next) => {
+    req.logout();
+});
+```
+
+&nbsp; req.logout 메서드는 아직 정의하지 않았다. 따라서 Request 객체를 확장해서 로그아웃 메서드를 추가해보자.
+
+```js
+
+class MyPassport{
+    ...
+
+    initialize(){
+        return (req, res, next) => {
+            req.logout = () => {
+                delete req.session[this.#key];
+            }
+
+            next();
+        }
+    }
+}
+
+```
+
+👉 &nbsp; `initialize` 세션에 저장된 인증 정보를 제거하는 로그아웃 함수를 Request 객체에 추가해주는 메서드이다.
+
+&nbsp; 이를 어플리케이션에 추가하기 위해 서버의 앞 단에 미들웨어를 추가해준다.
+
+```js
+
+---
+
+app.use(mypassort.initialize());
+app.use(mypassport.session());
+
+---
+
+```
+
+&nbsp; 이제 컨트롤러 함수에서 `req.logout`을 이용할 수 있다.
+
+```js
+app.get('/logout', (req, res, next) => {
+    req.logout();
+
+    res.send('로그아웃 성공');
+});
+```
+
+&nbsp; 로그아웃 이후 세션 상태를 보면 모두 삭제되어 있다.
+
+<br>
+
+# 정리
+
+<br>
+
+👉 &nbsp; 추가로 더 공부할 사항이 있지만 이번 글은 여기까지만 작성하려고 한다.
+
+&nbsp; 처음 Passport.js를 봤을 땐 너무 막연하달까...? 이해가 어려웠는데, 비슷하게 구현을 해보면서 동작 원리에 대해 알게 되어서 좋은 시간이었다.
+
+&nbsp; 아직 공부할게 더 있으니 다음 글에서 더 자세하게 정리해보도록 하겠다.
+
+출처 - [패스포트 동작 원리와 인증 구현 - 김정환 블로그](https://jeonghwan-kim.github.io/dev/2020/06/20/passport.html)
