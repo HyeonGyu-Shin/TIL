@@ -66,7 +66,7 @@ payload를 조작할 경우 서명이 일치하지 않기 때문에 인증에 �
 
 <br>
 
-<img src="./imgs/img1.png" alt="jwt 설명 img 1">
+<img src="../imgs/img1.png" alt="jwt 설명 img 1">
 
 <br>
 
@@ -74,7 +74,7 @@ payload를 조작할 경우 서명이 일치하지 않기 때문에 인증에 �
 
 <br>
 
-<img src="./imgs/img2.png" alt="jwt 설명 img 2">
+<img src="../imgs/img2.png" alt="jwt 설명 img 2">
 
 <br>
 
