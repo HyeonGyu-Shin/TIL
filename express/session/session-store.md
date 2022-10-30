@@ -56,7 +56,7 @@
 
 <br>
 
-<img src="./session-store.png" alt="session store를 설명하는 사진">
+<img src="./imgs/session-store.png" alt="session store를 설명하는 사진">
 
 <br>
 
@@ -99,7 +99,7 @@ app.use(
 
 <br>
 
-<img src="./connect-mongo.png">
+<img src="./imgs/connect-mongo.png">
 
 <br>
 
