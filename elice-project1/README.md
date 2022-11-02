@@ -16,6 +16,20 @@
 
 <br>
 
+## 만든 것...?
+
+<br>
+
+👉 &nbsp;백엔드 API 문서 작성 - [계란 후라이 API 문서](https://documenter.getpostman.com/view/23999077/2s8YRmJXwV)
+
+👉 &nbsp; 트렐로 이용중!!
+
+<br>
+
+<img src="./imgs/trello.png" alt="트렐로를 이용하는 사진">
+
+<br>
+
 ## 해야할 것
 
 <br>
