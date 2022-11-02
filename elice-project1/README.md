@@ -20,15 +20,25 @@
 
 <br>
 
-👉 &nbsp;백엔드 API 문서 작성 - [계란 후라이 API 문서](https://documenter.getpostman.com/view/23999077/2s8YRmJXwV)
+👉 &nbsp;백엔드 API 문서 작성 - [계란 후라이 API 문서](https://documenter.getpostman.com/view/23999077/2s8YRmJXwV) - 2022. 11. 02
 
-👉 &nbsp; 트렐로 이용중!!
+👉 &nbsp;백엔드 API 문서 업데이트 - [계란 후라이 API 문서](https://documenter.getpostman.com/view/23999077/2s8YRmJXwV) - 2022. 11. 03
+
+👉 &nbsp; 트렐로 이용중!! - 2022. 11. 02
+
+👉 &nbsp; express 생성시 DB 데이터 생성 & 서버 종료시 DB 데이터 삭제 - - 2022. 11. 03
+
+👉 &nbsp; order service, router, model 관련 리팩토링 - 2022. 11. 03
 
 <br>
 
 <img src="./imgs/trello.png" alt="트렐로를 이용하는 사진">
 
 <br>
+
+👉 &nbsp; 주문(Order) 부분 담당.
+
+1. totalPrice 계산 로직
 
 ## 해야할 것
 
