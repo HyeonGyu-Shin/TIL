@@ -6,6 +6,16 @@
 
 <br>
 
+## 팀 링크
+
+<br>
+
+👉 &nbsp; [트렐로](https://trello.com/b/PP5QltJu/vegetable)
+
+👉 &nbsp; [팀 노션페이지](https://www.notion.so/elice/14-d1b9e98c47b449abaf4d12510fa2763d)
+
+<br>
+
 ## 해야할 것
 
 <br>
