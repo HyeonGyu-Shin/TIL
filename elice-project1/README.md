@@ -30,6 +30,8 @@
 
 👉 &nbsp; order service, router, model 관련 리팩토링 - 2022. 11. 03
 
+👉 &nbsp; DB에 테스트 데이터 추가 - 2022. 11. 03
+
 <br>
 
 <img src="./imgs/trello.png" alt="트렐로를 이용하는 사진">
@@ -46,8 +48,16 @@
 
 👉 &nbsp; 해야할 것은 다음과 같다.
 
-1. 에러 헨들링 - HTTP Status Code를 사용하자!
+~~1. 에러 헨들링 - HTTP Status Code를 사용하자!~~
 
-2. JOI를 이용하여 유효성 검사를 하자!
+~~2. JOI를 이용하여 유효성 검사를 하자!~~
 
 3. DB 설계를 더 공부하자!
+
+4. cs 지식을 더 공부하자! - 2022. 11. 03
+   - Rest API
+   - var, const, let의 차이
+   - scope chaning
+   - jwt
+   - cors
+   - 콜백지옥
