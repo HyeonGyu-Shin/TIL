@@ -26,6 +26,12 @@
 
 👉 &nbsp; 트렐로 이용중!! - 2022. 11. 02
 
+<br>
+
+<img src="./imgs/trello.png" alt="트렐로를 이용하는 사진">
+
+<br>
+
 👉 &nbsp; express 생성시 DB 데이터 생성 & 서버 종료시 DB 데이터 삭제 - - 2022. 11. 03
 
 👉 &nbsp; order service, router, model 관련 리팩토링 - 2022. 11. 03
@@ -39,9 +45,11 @@
 
 👉 &nbsp; 에러 처리 리팩토링 - 2022. 11. 05
 
+👉 &nbsp; 스크럼 회의록 작성 - 2022. 11. 07
+
 <br>
 
-<img src="./imgs/trello.png" alt="트렐로를 이용하는 사진">
+<img src="./imgs/scrum.png" alt="스크럼 문서">
 
 <br>
 
