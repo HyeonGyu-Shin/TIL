@@ -44,7 +44,6 @@ import { UnauthorizedError } from '../utils';
 
 function loginRequired(req, res, next) {
   const userToken = req.headers['authorization']?.split(' ')[1];
-  // const userToken = req.get('authorization')?.split(' ')[1];
 
   if (!userToken) {
     return next(
