@@ -241,3 +241,195 @@ const newShin: O<Profile, 'money'> = {
 ```
 
 <br>
+
+## 🔎  Readonly
+
+<br>
+
+👉  Readonly 수정을 불가능하게 해주는 utility type이다.
+
+<br>
+
+```tsx
+type Readonly<T> = {
+  readonly [P in keyof T]: T[P];
+};
+```
+
+<br>
+
+readonly를 붙여줘서 속성이 변화하면 에러를 발생시키도록 한다.
+
+<br>
+
+```tsx
+interface Profile {
+  name: string;
+  age: number;
+  isMarried: boolean;
+}
+
+type R<T> = {
+  readonly [Key in keyof T]: T[Key];
+};
+
+const newShin: R<Profile> = {
+  name: 'shin',
+  age: 27,
+  isMarried: false,
+};
+
+// 에러 발생!
+// readonly가 속성에 붙어있기 때문에 수정 불가능!
+newShin.name = 'shishin';
+```
+
+<br>
+
+## 🔎  Required
+
+<br>
+
+👉  Required는 제너릭 안의 모든 속성에 있는 optional을 제거해주는 utility type이다.
+
+<br>
+
+```tsx
+type Required<T> = {
+  [P in keyof T]-?: T[P];
+};
+```
+
+<br>
+
+-?는 optional을 제거해주는 modify 함수(?)라고 생각하면 된다. 이를 통해 제너릭 안의 속성들의 optional을 제거한 새로운 객체 타입을 반환해준다.
+
+<br>
+
+```tsx
+interface Profile {
+  name?: string;
+  age?: number;
+  isMarried?: boolean;
+}
+
+type R<T> = {
+  [Key in keyof T]-?: T[Key];
+};
+
+// optional을 제거했기 때문에
+// isMarried가 없다는 에러가 발생!!
+const newShin: R<Profile> = {
+  name: 'shin',
+  age: 27,
+  // isMarried: false,
+};
+```
+
+<br>
+
+## 🔎  Record
+
+<br>
+
+👉  Record는 객체 프로퍼티의 타입을 쉽게 정의할 수 있도록 도와주는 utility type이다.
+
+<br>
+
+```tsx
+type Record<K extends keyof any, T> = {
+  [P in K]: T;
+};
+```
+
+<br>
+
+예시를 살펴보자.
+
+<br>
+
+```tsx
+interface Obj1 {
+  [key: string]: number;
+}
+
+type Obj2 = {
+  [key: string]: number;
+};
+
+// Record 자리에 Obj1, Obj2를 넣어도 괜찮다.
+const a: Record<string, number> = {
+  a: 3,
+  b: 5,
+};
+```
+
+<br>
+
+객체 타입을 여러 방법을 이용하여 정의했다. 이를 통해 Record에 대한 이해를 더 쉽게 할 수 있었다.
+
+<br>
+
+```tsx
+interface Profile  {
+    nam: string,
+    age: number,
+    isMarried?: boolean,
+}
+
+type R<K extends keyof any, T> = {
+    [P in K]:T
+}
+
+// age와 isMarried에서 에러가 발생한다.
+// newShin의 객체는 string, string 타입 쌍이기 때문이다.
+const newShin:R<string,string> = {
+    name:'shin',
+    age: 27,
+    isMarried: false,
+}
+
+---
+
+// 따라서 에러를 해결하려면
+// 아래와 같이 모든 프로퍼티를 string으로 변경하면 된다.
+const newShin:R<string,string> = {
+    name:'shin',
+    age: '27',
+    isMarried: 'false',
+}
+```
+
+<br>
+
+## 🔎  NonNullable
+
+<br>
+
+👉  NonNullable은 key types에서 null | undefined를 없애주는 utility type이다.
+
+<br>
+
+```tsx
+type NonNullable<T> = T & {};
+// type NonNullable<T> = T extends null | undefined? never : T
+```
+
+<br>
+
+공식 문서에는 간략하게 나와있어서 좀 더 풀어서 작성을 했다.
+
+<br>
+
+```tsx
+type A = string | number | null | undefined | boolean;
+
+// B = string | number | boolean
+type B = NonNullable<A>;
+```
+
+<br>
+
+A에서 작성한 key types에서 null과 undefined가 제외된 나머지 값들만 반환되었다.
+
+<br>
