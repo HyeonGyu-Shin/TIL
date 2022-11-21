@@ -433,3 +433,151 @@ type B = NonNullable<A>;
 A에서 작성한 key types에서 null과 undefined가 제외된 나머지 값들만 반환되었다.
 
 <br>
+
+## ✏️  Parameters
+
+<br>
+
+👉  Parameters는 제너릭에 함수를 받아와서 그 함수의 parameter를 가져와주는 utility type이다.
+
+ <br>
+
+```tsx
+type Parameters<T extends (...args: any) => any> = T extends (
+  ...args: infer P
+) => any
+  ? P
+  : never;
+```
+
+<br>
+
+infer에 대한 건 [여기](https://www.notion.so/Infer-e4ce7d753ee245999b9d9fe2a146028d)에서 더 자세히 살펴보도록 하자.
+아직 위의 코드만 보면 이해하기 어려우니 예시를 통해 더 알아보도록 하자.
+
+<br>
+
+```tsx
+// 매개변수가 x: number, y: string, z: boolean인 함수 정의
+function zip(
+  x: number,
+  y: string,
+  z: boolean
+): { x: number; y: string; z: boolean } {
+  return { x, y, z };
+}
+
+// Parameters를 직접 구현해봤다.
+// 함수를 받아와서 그 함수가 유효하면 해당 함수의 매개변수인 U를 return 해준다.
+type P<T extends (...args: any) => any> = T extends (...args: infer U) => any
+  ? U
+  : never;
+
+// [x: number, y: string, z: boolean]가 return 되었다.
+type params = P<typeof zip>;
+```
+
+<br>
+
+함수가 성공적으로 들어왔기 때문에 U에 함수의 매개변수가 할당이 되고, U가 반환되어 params에 함수의 parameter들이 성공적으로 할당되었다.
+
+<br>
+
+## ✏️  ReturnType
+
+<br>
+
+👉  ReturnType도 Parameters와 비슷하게 infer를 사용하여 함수의 return 값을 반환해주는 utility type이다.
+
+<br>
+
+```tsx
+type ReturnType<T extends (...args: any) => any> = T extends (
+  ...args: any
+) => infer R
+  ? R
+  : any;
+```
+
+<br>
+
+parameters에서 처럼 함수를 받아와서 infer를 통해 함수의 return 값을 가져와서 가져온return 값을 반환해준다.
+
+<br>
+
+```tsx
+// return의 타입 값이 {x: number, y: string, z: boolean}인 함수 정의
+function zip(
+  x: number,
+  y: string,
+  z: boolean
+): { x: number; y: string; z: boolean } {
+  return { x, y, z };
+}
+
+// 함수를 받아와서 함수가 유효하면 함수의 return 타입 값을 가져와서 반환해준다.
+type R<T extends (...args: any) => any> = T extends (...args: any) => infer R
+  ? R
+  : never;
+
+// {x: number, y: string, z: boolean}를 반환해준다.
+type params = R<typeof zip>;
+```
+
+<br>
+
+## ✏️  ConstructorParameters & InstanceType
+
+<br>
+
+👉  위의 두 가지 utility types는 class와 관련이 있다.
+
+<br>
+
+```tsx
+type ConstructorParameters<T extends abstract new (...args: any) => any> =
+  T extends abstract new (...args: infer P) => any ? P : never;
+type InstanceType<T extends abstract new (...args: any) => any> =
+  T extends abstract new (...args: any) => infer R ? R : any;
+```
+
+<br>
+
+둘 다 생성자 함수를 받아온 후 각각 생성자 함수의 매개변수와 Return 값을 반환해준다.
+
+<br>
+
+```tsx
+class A {
+  a: string;
+  b: number;
+  constructor(a: string, b: number) {
+    this.a = a;
+    this.b = b;
+  }
+}
+
+// 직접 ConstructorParameters를 구현
+type CP<T extends abstract new (...args: any) => any> = T extends abstract new (
+  ...args: infer U
+) => any
+  ? U
+  : never;
+
+// C1과 C2 모두 [a: string, b: number]를 반환
+type C1 = CP<typeof A>;
+type C2 = ConstructorParameters<typeof A>;
+
+// 직접 InstanceType 구현
+type I<T extends abstract new (...args: any) => any> = T extends abstract new (
+  ...args: any
+) => infer U
+  ? U
+  : never;
+
+// I1과 I2 모두 A를 반환한다.
+type I1 = I<typeof A>;
+type I2 = InstanceType<typeof A>;
+```
+
+<br>
