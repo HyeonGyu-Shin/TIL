@@ -128,14 +128,6 @@ const comment = new Comment({ content, user, userFullName: `${user.name.first} $
 
 <br>
 
-## 🔎 &nbsp; nesting의 성능 확인
-
-<br>
-
-👉 &nbsp; 추후에 내가 직접 구현해볼 때 하도록 하겠다!
-
-<br>
-
 ## 🔎 &nbsp; '$' 문법을 이용하여 내장된 특정 문서 수정하기
 
 <br>
@@ -162,28 +154,4 @@ commentRouter.patch('/:commentId', async (req, res) => {
 
 <br>
 
-## 🔎 &nbsp; user 정보 수정시, Blog에 적용되게!!
-
-<br>
-
-<br>
-
-# 📌 &nbsp;
-
-<br>
-
-👉 &nbsp;
-
-<br>
-
-# 📌 &nbsp;
-
-👉 &nbsp;
-
-<br>
-
-## 🔎 &nbsp;
-
-<br>
-
-👉 &nbsp;
+&nbsp; 하지만 무조건 내장을 한다고 해서 성능이 좋아지는 건 아니다!! 상황에 따라 관계형을 쓸지 내장형을 쓸지 잘 고민하고 선택하도록 하자!!
