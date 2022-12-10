@@ -73,3 +73,38 @@ function same(arr1, arr2) {
 <br>
 
 위처럼 객체를 이용하여 key와 빈도수를 체크하면 O(n)으로 시간복잡도를 줄일 수 있다.
+
+<br>
+
+## 🔎  슬라이딩 윈도우
+
+<br>
+
+👉  한 개의 배열 arr와 양의 정수 n이 주어진다. 이때 arr의 요소 중 n개의 최대합을 구해야 한다면 어떻게 해결해야 할까??
+
+<br>
+
+```tsx
+function maxSubarraySum(arr, n) {
+  if (arr.length < n) return null;
+
+  let maxSum = 0;
+  let tempSum = 0;
+
+  for (let i = 0; i < n; i++) {
+    maxSum += arr[i];
+  }
+  tempSum = maxSum;
+  for (let i = n; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - n] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
+}
+```
+
+<br>
+
+이중 for문을 통해 모든 구간들을 살펴보는게 아니라, 첫 구간에서 앞의 한 개와 뒤의 한 개를 교체해가면서 값을 구하는 방식이 슬라이딩 윈도우이다.
+
+<br>
