@@ -88,3 +88,18 @@ const ab: AB = C;
 ```
 
 &nbsp; 따라서 위의 코드가 유효하다는 것을 쉽게 이해할 수 있게 되었다.
+
+👉 &nbsp; 다음은 특수한 상황에서의 에러이다.
+
+```js
+const c: C = { name: 'shin', age: 27, married: false };
+```
+
+&nbsp; 이유는 객체 리터럴 검사(잉여 속성 검사)를 하기 때문에 에러가 발생한다.
+
+```js
+const obj = { name: 'shin', age: 27, married: false };
+const c: C = obj;
+```
+
+&nbsp; 이를 해결하기 위해선 객체를 따로 빼서 선언 후 대입해주면 해결된다.

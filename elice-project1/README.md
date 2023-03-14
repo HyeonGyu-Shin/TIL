@@ -53,6 +53,8 @@
 
 👉 &nbsp; Front와 API 연동 작업 - 2022. 11. 09
 
+https://engineering.linecorp.com/ko/blog/pm2-nodejs/#PM2%EB%A5%BC%ED%99%9C%EC%9A%A9%ED%95%9CNode.js%EB%AC%B4%EC%A4%91%EB%8B%A8%EC%84%9C%EB%B9%84%EC%8A%A4%ED%95%98%EA%B8%B0-%EC%84%9C%EB%B9%84%EC%8A%A4%EC%9A%B4%EC%98%81%ED%95%98%EA%B8%B0
+
 <br>
 
 <img src="./imgs/scrum.png" alt="스크럼 문서">
